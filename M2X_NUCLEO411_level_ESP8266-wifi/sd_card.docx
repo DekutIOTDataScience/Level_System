@@ -1,0 +1,1 @@
+Be careful about spamming the SD card too fast. Throw some waits in there between calls to write and read.
