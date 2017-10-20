@@ -1,1 +1,2 @@
 Be careful about spamming the SD card too fast. Throw some waits in there between calls to write and read.
+Available at  https://os.mbed.com/forum/helloworld/topic/27804/?page=1#comment-53252..........borrow ideas here on how to successfully connect read and write on the sd card.
