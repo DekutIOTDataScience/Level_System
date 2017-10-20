@@ -30,13 +30,15 @@ thanks to the external power source.
 The following power sequence procedure must be respected:
 
 in our case the following case worked well,
-1.Connect the jumper between pin 2 and pin 3 of JP5
-2. Check that JP1 is removed
-3. Connect the external power source to VIN or E5V
-4. Power on the external power supply 7 V< VIN < 12 V to VIN, or 5 V for E5V
-5. Check that LD3 is turned ON
-6. Connect the PC to USB connector CN1
+         1.Connect the jumper between pin 2 and pin 3 of JP5
+         2. Check that JP1 is removed
+         3. Connect the external power source to VIN or E5V
+         4. Power on the external power supply 7 V< VIN < 12 V to VIN, or 5 V for E5V
+         5. Check that LD3 is turned ON
+         6. Connect the PC to USB connector CN1
 If this order is not respected, the board may be supplied by VBUS first then by VIN or E5V,
 and the following risks may be encountered:
-1.If more than 300 mA current is needed by the board, the PC may be damaged or the current supply can be limited by the PC. As a consequence the board is not powered correctly.
-2. 300 mA is requested at enumeration (since JP1 must be OFF) so there is risk that the request is rejected and the enumeration does not succeed if the PC cannot provide such current. Consequently the board is not power supplied (LED LD3 remains OFF).
+         1.If more than 300 mA current is needed by the board, the PC may be damaged or the current supply can be limited by the PC. 
+           As a consequence the board is not powered correctly.
+         2. 300 mA is requested at enumeration (since JP1 must be OFF) so there is risk that the request is rejected and the enumeration does not succeed if the PC cannot provide such current.
+            Consequently the board is not power supplied (LED LD3 remains OFF).
