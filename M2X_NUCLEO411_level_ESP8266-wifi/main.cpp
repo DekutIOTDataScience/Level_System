@@ -4,6 +4,7 @@
 #include "TCPSocketConnection.h"
 #include "hcsr04.h"
  
+DigitalOut LED(LED1);
 //D12 TRIGGER D11 ECHO
 HCSR04 sensor(D12, D11);
 
