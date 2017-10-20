@@ -29,6 +29,15 @@ int main()
     // connect to wifi
     wifi.init(); //Reset
     wifi.connect(); //Use DHCP
+    if(wifi.connect()==true)
+    {
+        LED=1;
+        
+        }
+    else
+    {
+        LED=!LED;
+        }
     //pc.printf("IP Address is %s \n\r", wifi.getIPAddress());
 
     // Initialize the M2X client
