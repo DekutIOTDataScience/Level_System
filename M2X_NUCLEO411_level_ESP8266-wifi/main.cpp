@@ -29,7 +29,7 @@ int main()
     // connect to wifi
     wifi.init(); //Reset
     wifi.connect(); //Use DHCP
-    if(wifi.connect()==true)
+    if(wifi.connect()==0)
     {
         LED=1;
         
