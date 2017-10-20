@@ -1,0 +1,42 @@
+Power supply input from the USB connector.
+
+The ST-LINK/V2-1 supports USB power management allowing to request more than
+100 mA current to the host PC.
+All parts of the STM32 Nucleo board and shield can be powered from the ST-LINK USB
+connector CN1 (U5V or VBUS). Note that only the ST-LINK part is power supplied before
+the USB enumeration as the host PC only provides 100 mA to the board at that time. During
+the USB enumeration, the STM32 Nucleo board requires 300 mA of current to the host PC.
+If the host is able to provide the required power, the targeted STM32 microcontroller is
+powered and the red LED LD3 is turned ON, thus the STM32 Nucleo board and its shield
+can consume a maximum of 300 mA current, not more. If the host is not able to provide the
+required current, the targeted STM32 microcontroller and the MCU part including the
+extension board are not power supplied. As a consequence the red LED LD3 remains
+turned OFF. In such case it is mandatory to use an external power supply as explained in
+the user guide manual.
+When the board is power supplied by USB (U5V) a jumper must be connected between pin
+1 and pin 2 of JP5.
+If the maximum current consumption of the NUCLEO and its
+extension boards exceeds 300 mA, it is mandatory to power
+the NUCLEO using an external power supply connected to
+E5V or VIN.
+
+Using VIN or E5V as external power supply
+VIN or E5V can be used as external power supply in case the current consumption of the
+STM32 Nucleo and extensions boards exceeds the allowed current on USB. In this
+condition it is still possible to use the USB for communication, for programming or
+debugging only, but it is mandatory to power supply the board first using VIN or E5V then
+connect the USB cable to the PC. Proceeding this way ensures that the enumeration occurs
+thanks to the external power source.
+The following power sequence procedure must be respected:
+
+in our case the following case worked well,
+1.Connect the jumper between pin 2 and pin 3 of JP5
+2. Check that JP1 is removed
+3. Connect the external power source to VIN or E5V
+4. Power on the external power supply 7 V< VIN < 12 V to VIN, or 5 V for E5V
+5. Check that LD3 is turned ON
+6. Connect the PC to USB connector CN1
+If this order is not respected, the board may be supplied by VBUS first then by VIN or E5V,
+and the following risks may be encountered:
+1.If more than 300 mA current is needed by the board, the PC may be damaged or the current supply can be limited by the PC. As a consequence the board is not powered correctly.
+2. 300 mA is requested at enumeration (since JP1 must be OFF) so there is risk that the request is rejected and the enumeration does not succeed if the PC cannot provide such current. Consequently the board is not power supplied (LED LD3 remains OFF).
