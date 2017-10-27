@@ -49,11 +49,11 @@ int main()
      long distance ;
 
     while (true) {
-        // send height value to M2X every 1 seconds
+        // send height value to M2X every 5 seconds
         distance = sensor.distance();   
         pc.printf("distance  %d \r\n",distance);
         ret = m2xClient.updateStreamValue(deviceId, streamName, distance);
         pc.printf("send() returned %d\r\n", ret);
-        wait(1.0);
+        wait(5.0);
     }
 }
